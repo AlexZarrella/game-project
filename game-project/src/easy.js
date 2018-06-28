@@ -84,6 +84,12 @@ Game.prototype.generateTiles = function(){
     return tilesArray;
 }
 
+//---------Score Function------------//
+
+function updateScore(){
+   game.score = $("score").html();
+}
+
 //-----------Draw board and erase board---------------//
 var score = document.getElementsByClassName('score');
 
@@ -130,6 +136,17 @@ Game.prototype.collision = function(){
 //     }
 //  }
 
+//-------------- WIN ---------------//
+
+Game.prototype.win = function(){
+    if(game.score === 350){
+        clearInterval(pause);
+          if(confirm('You win!')){
+              window.location.reload();
+          }
+    }
+}
+
 //-------------JR movements---------------//
 
 // var mySound;
@@ -147,6 +164,7 @@ Jr.prototype.moveDown = function(){
         game.gameBoard[game.jr.y][game.jr.x] = GROUND;
         game.jr.y = game.jr.y + 1 ;
         game.gameBoard[game.jr.y][game.jr.x] = this.code;
+        game.win();
         // mySound = new sound("../Images/Slurping 2-SoundBible.com-1269549524.wav");
         // mySound.play();
       }
@@ -172,6 +190,7 @@ Jr.prototype.moveUp = function(){
         game.gameBoard[game.jr.y][game.jr.x] = GROUND;
         game.jr.y = game.jr.y - 1 ;
         game.gameBoard[game.jr.y][game.jr.x] = this.code;
+        game.win();
         // mySound = new sound("../Images/Slurping 2-SoundBible.com-1269549524.wav");
         // mySound.play();
   }
@@ -198,6 +217,7 @@ Jr.prototype.moveLeft = function(){
         game.gameBoard[game.jr.y][game.jr.x] = GROUND;
         game.jr.x = game.jr.x - 1 ;
         game.gameBoard[game.jr.y][game.jr.x] = this.code;
+        game.win();
         // mySound = new sound("../Images/Slurping 2-SoundBible.com-1269549524.wav");
         // mySound.play();
   }
@@ -224,6 +244,7 @@ Jr.prototype.moveLeft = function(){
         game.gameBoard[game.jr.y][game.jr.x] = GROUND;
         game.jr.x = game.jr.x + 1 ;
         game.gameBoard[game.jr.y][game.jr.x] = this.code;
+        game.win();
         // mySound = new sound("../Images/Slurping 2-SoundBible.com-1269549524.wav");
         // mySound.play();
     }
@@ -236,17 +257,7 @@ Jr.prototype.moveLeft = function(){
         }
 }
 
-//-------------- WIN ---------------//
 
-Game.prototype.win = function(){
-    if(game.score === 350){
-        clearInterval(pause);
-          if(confirm('You win!')){
-              window.location.reload();
-          }
-    }
-    
-}
 
 //------------------Hoop Movements------------------//
 

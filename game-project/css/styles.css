@@ -114,6 +114,10 @@ header img {
     position: absolute;
 } 
 
+#begin:hover {
+    background-color: #FFB81C;
+}
+
 
 
 
