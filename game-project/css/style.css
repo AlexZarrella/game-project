@@ -38,6 +38,7 @@ button {
     color: #6F263D;
     text-decoration: none;
     font-size: 25px;
+    margin-top: 5rem;
 }
 
 button:hover {
@@ -104,14 +105,14 @@ button:hover {
     font-family: 'Cairo', sans-serif;
 }
 
-.btn {
+/* .btn {
     padding-top: 3rem;
     display: flex;
     flex-direction: row;
     float: right;
     margin-top: 30px;
     margin-right: 24rem;
-}
+} */
 
 .background {
     background-color: black;
@@ -128,5 +129,10 @@ button:hover {
 #hoop {
     width: 35px;
     margin-left: 4px;
+}
+
+.btn-lebron {
+    display: flex;
+    flex-direction: row;
 }
 
