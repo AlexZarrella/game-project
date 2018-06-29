@@ -3,6 +3,8 @@ document.getElementById("begin").onclick = function(){
     document.getElementById("begin").remove();
 
 
+
+
 function Game (){
 
     this.gameBoard = [
@@ -108,6 +110,7 @@ Game.prototype.collision = function(){
    
     for(var i = 0; i < game.hoops.length; i++){
         if(game.hoops[i].x === game.jr.x && game.hoops[i].y === game.jr.y){
+            playBaby();
             restartGame();
         }
     }
@@ -156,6 +159,7 @@ Jr.prototype.moveDown = function(){
     else if(game.gameBoard[game.jr.y+1][game.jr.x] === GOAL){
         game.jr.bottlesDrank += 1;
         console.log(game.score += 50);
+        playAudio();
         game.gameBoard[game.jr.y][game.jr.x] = GROUND;
         game.jr.y = game.jr.y + 1 ;
         game.gameBoard[game.jr.y][game.jr.x] = this.code;
@@ -185,6 +189,7 @@ Jr.prototype.moveUp = function(){
   else if(game.gameBoard[game.jr.y-1][game.jr.x] === GOAL){
         game.jr.bottlesDrank += 1;
         console.log(game.score += 50);
+        playAudio();
         game.gameBoard[game.jr.y][game.jr.x] = GROUND;
         game.jr.y = game.jr.y - 1 ;
         game.gameBoard[game.jr.y][game.jr.x] = this.code;
@@ -214,6 +219,7 @@ Jr.prototype.moveLeft = function(){
   else if(game.gameBoard[game.jr.y][game.jr.x-1] === GOAL){
         game.jr.bottlesDrank += 1;
         console.log(game.score += 50);
+        playAudio();
         game.gameBoard[game.jr.y][game.jr.x] = GROUND;
         game.jr.x = game.jr.x - 1 ;
         game.gameBoard[game.jr.y][game.jr.x] = this.code;
@@ -243,6 +249,7 @@ Jr.prototype.moveLeft = function(){
   else if(game.gameBoard[game.jr.y][game.jr.x+1] === GOAL){
         game.jr.bottlesDrank += 1;
         console.log(game.score += 50);
+        playAudio();
         game.gameBoard[game.jr.y][game.jr.x] = GROUND;
         game.jr.x = game.jr.x + 1 ;
         game.gameBoard[game.jr.y][game.jr.x] = this.code;
@@ -446,6 +453,8 @@ function keyboardControls() {
     game.hoops.push(hoop1, hoop2, hoop3, hoop4, hoop5, hoop6);
     game.bottle.push(goal1, goal2, goal3, goal4, goal5, goal6, goal7);
     game.jr = new Jr();
+    var x = document.getElementById("myAudio");
+    var y = document.getElementById("baby");
     
     game.drawBoard();
     keyboardControls();
@@ -472,17 +481,16 @@ function keyboardControls() {
         
       }
 
+      function playAudio(){
+          x.play();
+      }
+
+      function playBaby(){
+        y.play();
+    }
+
+
     };
     
     
     
-    
-    
-
-
-
-
-
-
-
-
